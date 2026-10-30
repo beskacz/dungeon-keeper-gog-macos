@@ -18,13 +18,15 @@ if [ ! -x "$DOSBOX_BIN" ]; then
     exit 1
 fi
 
-if [ ! -f "$RESOURCES/script_sp.pre-dosbox-staging" ]; then
-    cp -p "$RESOURCES/script_sp" "$RESOURCES/script_sp.pre-dosbox-staging"
-fi
+for launcher in script_sp script_s script_c; do
+    if [ ! -f "$RESOURCES/$launcher.pre-dosbox-staging" ]; then
+        cp -p "$RESOURCES/$launcher" "$RESOURCES/$launcher.pre-dosbox-staging"
+    fi
+    cp "$SCRIPT_DIR/files/$launcher" "$RESOURCES/$launcher"
+    chmod +x "$RESOURCES/$launcher"
+done
 
-cp "$SCRIPT_DIR/files/script_sp" "$RESOURCES/script_sp"
 cp "$SCRIPT_DIR/files/dosboxDK_staging.conf" "$RESOURCES/game/dosboxDK_staging.conf"
-chmod +x "$RESOURCES/script_sp"
 
 echo "Installed successfully."
-echo "Open Dungeon Keeper Gold™ and choose Singleplayer."
+echo "Open Dungeon Keeper Gold™ and choose Singleplayer or Multiplayer."

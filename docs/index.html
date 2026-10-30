@@ -36,7 +36,7 @@
   <header>
     <div class="eyebrow">Retina fullscreen fix</div>
     <h1>Dungeon Keeper Gold on modern Macs</h1>
-    <p class="lead">Keep the original GOG game and launcher, but replace its 2014 DOSBox renderer with modern DOSBox Staging.</p>
+    <p class="lead">Keep the original GOG game and launcher, but replace its 2014 DOSBox renderer with modern DOSBox Staging—for single-player and multiplayer.</p>
   </header>
 
   <section class="panel">
@@ -49,13 +49,19 @@
       <li>Install <a href="https://brew.sh/">Homebrew</a>, then DOSBox Staging:<pre><code>brew install dosbox-staging</code></pre></li>
       <li>Download this repository and run:<pre><code>chmod +x install.sh
 ./install.sh</code></pre></li>
-      <li>Open Dungeon Keeper Gold™ normally and choose <strong>Singleplayer</strong>.</li>
+      <li>Open Dungeon Keeper Gold™ normally and choose <strong>Singleplayer</strong> or <strong>Multiplayer</strong>.</li>
     </ol>
+
+    <h2>Multiplayer</h2>
+    <p><strong>Host:</strong> choose <em>Start Network Host Game</em>. DOSBox Staging opens an IPX-over-UDP server on port <code>19900</code>.</p>
+    <p><strong>Client:</strong> choose <em>Start Network Client Game</em> and enter the host address followed by the port, for example:</p>
+    <pre><code>192.168.1.20 19900</code></pre>
+    <p>For internet play, forward UDP port <code>19900</code> to the host Mac, or connect both computers through Tailscale or ZeroTier and use the host's VPN address.</p>
 
     <h2>Display preference</h2>
     <p>The default profile stretches the game to fill the display. For original 4:3 proportions, open <code>files/dosboxDK_staging.conf</code>, change <code>aspect=stretch</code> to <code>aspect=on</code>, then run the installer again.</p>
 
-    <div class="note"><p><strong>No game files are included.</strong> Your GOG CD image, audio, saves and language selection remain untouched. Multiplayer scripts are not modified.</p></div>
+    <div class="note"><p><strong>No game files are included.</strong> Your GOG CD image, audio, saves and language selection remain untouched.</p></div>
 
     <h2>Undo</h2>
     <pre><code>./uninstall.sh</code></pre>

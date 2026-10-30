@@ -10,7 +10,7 @@ Apple Silicon Macs by replacing only its single-player DOSBox launcher with
 The original GOG wrapper bundles DOSBox 0.74-2 from 2014. It can open a Retina
 full-screen surface while leaving the game at a fixed size in the centre. This
 patch keeps the original game, CD image, music, saves, language files and GOG
-launcher, but uses a current renderer for single-player.
+launcher, but uses a current renderer for single-player and multiplayer.
 
 ## Requirements
 
@@ -35,10 +35,27 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Open **Dungeon Keeper Gold™** normally and choose **Singleplayer**. The game
-will fill the Retina display. The supplied profile intentionally stretches the
-original image to the whole screen. To preserve the original proportions, edit
-`dosboxDK_staging.conf` and change `aspect=stretch` to `aspect=on`.
+Open **Dungeon Keeper Gold™** normally and choose **Singleplayer** or
+**Multiplayer**. The game will fill the Retina display. The supplied profile
+intentionally stretches the original image to the whole screen. To preserve the
+original proportions, edit `dosboxDK_staging.conf` and change `aspect=stretch`
+to `aspect=on`.
+
+## Multiplayer
+
+The GOG launcher provides two choices:
+
+- **Start Network Host Game** starts an IPX-over-UDP server on port `19900`.
+- **Start Network Client Game** asks for the host address. Enter the address and
+  port separated by a space, for example `192.168.1.20 19900`.
+
+For play on the same LAN, use the host Mac's local IP address. For internet
+play, forward UDP port `19900` to the host Mac. If port forwarding is not
+available, both players can join the same Tailscale or ZeroTier network and use
+the host's VPN address.
+
+Both players should select the same game—Dungeon Keeper or Deeper Dungeons—and
+then choose the in-game multiplayer option.
 
 ## Custom app location
 
@@ -54,9 +71,9 @@ Pass the `.app` path as the first argument:
 ./uninstall.sh
 ```
 
-The installer creates a one-time backup named
-`script_sp.pre-dosbox-staging`. It does not alter or redistribute the game
-files.
+The installer creates one-time backups named `script_sp.pre-dosbox-staging`,
+`script_s.pre-dosbox-staging`, and `script_c.pre-dosbox-staging`. It does not
+alter or redistribute the game files.
 
 ## Troubleshooting
 
@@ -69,7 +86,9 @@ files.
 
 ## Files
 
-- `files/script_sp` — launches the GOG configuration with DOSBox Staging
+- `files/script_sp` — launches GOG single-player with DOSBox Staging
+- `files/script_s` — launches the multiplayer host
+- `files/script_c` — launches the multiplayer client
 - `files/dosboxDK_staging.conf` — modern Retina/full-screen rendering override
 - `install.sh` — backs up and installs the two changed files
 - `uninstall.sh` — restores the original single-player launcher
@@ -85,7 +104,7 @@ Push this directory to GitHub, then open **Settings → Pages** and select:
 
 ## Notes
 
-- Multiplayer launch scripts are left untouched.
+- Multiplayer uses DOSBox Staging's IPX-over-UDP support on port `19900`.
 - Polish and other GOG language selections continue to work.
 - DOSBox Staging may print compatibility warnings for the old GOG config; the
   relevant settings are overridden by `dosboxDK_staging.conf`.
