@@ -61,6 +61,17 @@ the host's VPN address.
 Both players should select the same game—Dungeon Keeper or Deeper Dungeons—and
 then choose the in-game multiplayer option.
 
+## Zoom on a MacBook
+
+The original DOS release does not support mouse-wheel or two-finger trackpad
+zoom. Its documented zoom keys are `Home` and `End`. On a MacBook keyboard use:
+
+- `Fn` + `Left Arrow` - zoom in (`Home`)
+- `Fn` + `Right Arrow` - zoom out (`End`)
+
+The alternative original controls are right Control + Up/Down, but `Fn` with
+the arrow keys is usually more convenient on a Mac laptop.
+
 ## Custom app location
 
 Pass the `.app` path as the first argument:
@@ -87,6 +98,8 @@ alter or redistribute the game files.
   reinstall this patch so `script_sp` launches DOSBox Staging.
 - **GOG launcher remains over the game:** update to the latest version and run
   `./install.sh` again; current launch scripts detach DOSBox before returning.
+- **Two-finger scrolling does not zoom:** this is a limitation of the original
+  DOS game, not the renderer. Use `Fn` + Left/Right Arrow for Home/End.
 - **Normal black bars at the sides:** you selected the proportion-preserving
   `aspect=on` option. Use `aspect=stretch` to fill the entire widescreen panel.
 
