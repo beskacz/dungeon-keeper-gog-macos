@@ -84,9 +84,9 @@ HD, 1440p, or Retina internal resolutions require KeeperFX. Menus and videos may
 continue to use their original fixed resolutions.
 
 The included DOSBox Staging profile also replaces GOG's fixed `80000`-cycle
-setting with the dynamic CPU core and `200000` protected-mode cycles. This gives
-the high-resolution renderer substantially more headroom while keeping a fixed,
-repeatable emulated speed.
+setting with the dynamic CPU core and adaptive maximum cycles. This gives the
+original high-resolution software renderer all the single-core performance the
+host Mac can provide.
 
 ## Custom app location
 
@@ -119,7 +119,8 @@ alter or redistribute the game files.
 - **Dungeon graphics look blocky:** after entering a level, press `Option` + `R`
   to switch to the original high-resolution mode.
 - **High-resolution mode is slow:** reinstall the latest patch. It includes the
-  updated dynamic CPU profile; older releases inherited GOG's `80000` cycles.
+  dynamic CPU profile with adaptive maximum cycles; older releases inherited
+  GOG's `80000` cycles.
 - **Normal black bars at the sides:** you selected the proportion-preserving
   `aspect=on` option. Use `aspect=stretch` to fill the entire widescreen panel.
 
