@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Run the GOG release of Dungeon Keeper Gold full-screen on modern Apple Silicon Macs.">
+  <meta name="robots" content="index,follow">
+  <title>Dungeon Keeper Gold on modern macOS</title>
+  <style>
+    :root { color-scheme: dark; --ink:#f5ead5; --muted:#bba98f; --gold:#e7a930; --red:#9d3028; --panel:#1b1716; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:radial-gradient(circle at 50% -20%,#57221b 0,#181313 45%,#0e0c0c 100%); color:var(--ink); font:17px/1.65 system-ui,-apple-system,sans-serif; }
+    main { width:min(850px,calc(100% - 32px)); margin:auto; padding:72px 0; }
+    header { text-align:center; margin-bottom:48px; }
+    .eyebrow { color:var(--gold); font-weight:750; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { margin:.25em 0; font:700 clamp(2.4rem,8vw,5rem)/.98 Georgia,serif; text-wrap:balance; }
+    h2 { margin-top:2em; color:#ffd27b; font-family:Georgia,serif; }
+    p,li { color:var(--muted); }
+    strong,a { color:var(--ink); }
+    a:hover { color:var(--gold); }
+    .lead { max-width:680px; margin:22px auto; font-size:1.2rem; }
+    .panel { background:color-mix(in srgb,var(--panel) 92%,transparent); border:1px solid #553b2c; border-radius:16px; padding:clamp(20px,5vw,40px); box-shadow:0 28px 80px #0008; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+    pre { overflow:auto; padding:18px 20px; border-radius:10px; background:#080707; border:1px solid #3a2c25; color:#ffd98e; }
+    .steps { counter-reset:steps; padding:0; }
+    .steps li { list-style:none; position:relative; padding-left:48px; margin:24px 0; }
+    .steps li::before { counter-increment:steps; content:counter(steps); position:absolute; left:0; top:0; width:32px; height:32px; display:grid; place-items:center; border-radius:50%; background:var(--red); color:white; font-weight:800; }
+    .note { border-left:4px solid var(--gold); padding:1px 0 1px 18px; }
+    .star { margin-top:36px; padding:22px; text-align:center; border:1px solid #9b6a27; border-radius:12px; background:#3a2414; }
+    .star strong { display:block; color:#ffd27b; font-size:1.2rem; }
+    footer { text-align:center; margin-top:38px; font-size:.85rem; color:#7e7164; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Retina fullscreen fix</div>
+    <h1>Dungeon Keeper Gold on modern Macs</h1>
+    <p class="lead">Keep the original GOG game and launcher, but replace its 2014 DOSBox renderer with modern DOSBox Staging.</p>
+  </header>
+
+  <section class="panel">
+    <h2>What this fixes</h2>
+    <p>The GOG wrapper can create a full-screen Retina surface while drawing the game as a small rectangle in the centre. This patch makes single-player scale across the complete display.</p>
+
+    <h2>Install</h2>
+    <ol class="steps">
+      <li>Install your legitimate GOG copy of <strong>Dungeon Keeper Gold™</strong> in Applications.</li>
+      <li>Install <a href="https://brew.sh/">Homebrew</a>, then DOSBox Staging:<pre><code>brew install dosbox-staging</code></pre></li>
+      <li>Download this repository and run:<pre><code>chmod +x install.sh
+./install.sh</code></pre></li>
+      <li>Open Dungeon Keeper Gold™ normally and choose <strong>Singleplayer</strong>.</li>
+    </ol>
+
+    <h2>Display preference</h2>
+    <p>The default profile stretches the game to fill the display. For original 4:3 proportions, open <code>files/dosboxDK_staging.conf</code>, change <code>aspect=stretch</code> to <code>aspect=on</code>, then run the installer again.</p>
+
+    <div class="note"><p><strong>No game files are included.</strong> Your GOG CD image, audio, saves and language selection remain untouched. Multiplayer scripts are not modified.</p></div>
+
+    <h2>Undo</h2>
+    <pre><code>./uninstall.sh</code></pre>
+
+    <p>Full details and custom application paths are documented in <strong>README.md</strong> in the repository.</p>
+    <div class="star"><strong>Did this fix your game?</strong> Please return to the GitHub repository and click ⭐ Star. It helps players and indexing tools find a solution that has been verified to work.</div>
+  </section>
+  <footer>Unofficial community configuration. Not affiliated with EA, GOG, or DOSBox Staging.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Use modern DOSBox Staging for correct scaling on Retina displays.
+exec /opt/homebrew/bin/dosbox \
+    --noprimaryconf \
+    --nolocalconf \
+    --conf game/dosboxDK.conf \
+    --conf game/dosboxDK_staging.conf \
+    --conf game/dosboxDK_single.conf
