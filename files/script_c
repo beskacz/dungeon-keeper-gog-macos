@@ -1,9 +1,13 @@
 #!/bin/bash
 
-# Multiplayer client using modern DOSBox Staging and the Retina renderer.
-exec /opt/homebrew/bin/dosbox \
+# Start DOSBox independently so the GOG launcher can close immediately.
+LOG_DIR="$HOME/Library/Logs/Dungeon Keeper Gold"
+mkdir -p "$LOG_DIR"
+nohup /opt/homebrew/bin/dosbox \
     --noprimaryconf \
     --nolocalconf \
     --conf game/dosboxDK.conf \
     --conf game/dosboxDK_staging.conf \
-    --conf game/dosboxDK_client.conf
+    --conf game/dosboxDK_client.conf \
+    >"$LOG_DIR/multiplayer-client.log" 2>&1 &
+exit 0

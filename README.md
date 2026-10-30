@@ -13,6 +13,9 @@ patch makes both single-player and multiplayer scale across the complete
 display while keeping the original game, CD image, music, saves, language files
 and GOG launcher.
 
+The replacement scripts start DOSBox independently, so the GOG launcher closes
+as soon as the game opens instead of remaining on top of the game window.
+
 ## Requirements
 
 - A legitimate GOG installation at `/Applications/Dungeon Keeper Gold™.app`
@@ -82,6 +85,8 @@ alter or redistribute the game files.
   `/opt/homebrew/bin/dosbox` exists, then run `./install.sh` again.
 - **White screen:** the original 2014 `surface` renderer is still being used;
   reinstall this patch so `script_sp` launches DOSBox Staging.
+- **GOG launcher remains over the game:** update to the latest version and run
+  `./install.sh` again; current launch scripts detach DOSBox before returning.
 - **Normal black bars at the sides:** you selected the proportion-preserving
   `aspect=on` option. Use `aspect=stretch` to fill the entire widescreen panel.
 
