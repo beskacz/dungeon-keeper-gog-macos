@@ -72,6 +72,17 @@ zoom. Its documented zoom keys are `Home` and `End`. On a MacBook keyboard use:
 The alternative original controls are right Control + Up/Down, but `Fn` with
 the arrow keys is usually more convenient on a Mac laptop.
 
+## Higher internal resolution
+
+The fullscreen patch scales the picture to the complete Retina display, but the
+original game starts dungeon levels in its low internal resolution. After a
+level has loaded, press `Option` + `R` (`Alt` + `R` on a PC keyboard) to toggle
+the original high-resolution mode.
+
+The unmodified DOS game only offers its original low and high modes; arbitrary
+HD, 1440p, or Retina internal resolutions require KeeperFX. Menus and videos may
+continue to use their original fixed resolutions.
+
 ## Custom app location
 
 Pass the `.app` path as the first argument:
@@ -100,6 +111,8 @@ alter or redistribute the game files.
   `./install.sh` again; current launch scripts detach DOSBox before returning.
 - **Two-finger scrolling does not zoom:** this is a limitation of the original
   DOS game, not the renderer. Use `Fn` + Left/Right Arrow for Home/End.
+- **Dungeon graphics look blocky:** after entering a level, press `Option` + `R`
+  to switch to the original high-resolution mode.
 - **Normal black bars at the sides:** you selected the proportion-preserving
   `aspect=on` option. Use `aspect=stretch` to fill the entire widescreen panel.
 
