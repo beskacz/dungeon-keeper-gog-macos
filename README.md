@@ -9,8 +9,9 @@ Apple Silicon Macs by replacing only its single-player DOSBox launcher with
 
 The original GOG wrapper bundles DOSBox 0.74-2 from 2014. It can open a Retina
 full-screen surface while leaving the game at a fixed size in the centre. This
-patch keeps the original game, CD image, music, saves, language files and GOG
-launcher, but uses a current renderer for single-player and multiplayer.
+patch makes both single-player and multiplayer scale across the complete
+display while keeping the original game, CD image, music, saves, language files
+and GOG launcher.
 
 ## Requirements
 
